@@ -1,8 +1,8 @@
-import counter from "./counter.reducer";
+import counter, { increment, decrement, reset } from "./counter.reducer";
 
 test("it should increment its value", () => {
   const stateBefore = 0;
-  const action = { type: "INCREMENT", payload: 2 };
+  const action = increment(2);
   const stateAfter = 2;
 
   const state = counter(stateBefore, action);
@@ -12,7 +12,7 @@ test("it should increment its value", () => {
 
 test("it should decrement its value", () => {
   const stateBefore = 0;
-  const action = { type: "DECREMENT", payload: 3 };
+  const action = decrement(3);
   const stateAfter = -3;
 
   const state = counter(stateBefore, action);
@@ -22,10 +22,19 @@ test("it should decrement its value", () => {
 
 test("it should reset to zero", () => {
   const stateBefore = 7;
-  const action = { type: "RESET" };
+  const action = reset();
   const stateAfter = 0;
 
   const state = counter(stateBefore, action);
 
   expect(state).toBe(stateAfter);
+});
+
+test("it should ignore any other action", () => {
+  const stateBefore = 7;
+  const action = { type: "MAKE_COFFEE" };
+
+  const state = counter(stateBefore, action);
+
+  expect(state).toBe(stateBefore);
 });

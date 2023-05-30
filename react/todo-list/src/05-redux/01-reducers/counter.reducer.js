@@ -1,12 +1,26 @@
+// action types
+
+export const INCREMENT = "INCREMENT";
+export const DECREMENT = "DECREMENT";
+export const RESET = "RESET";
+
+// action creators
+
+export const increment = (amount) => ({ type: INCREMENT, payload: amount });
+export const decrement = (amount) => ({ type: DECREMENT, payload: amount });
+export const reset = () => ({ type: RESET });
+
+// reducer
+
 export default function counter(state, action) {
   switch (action.type) {
-    case "INCREMENT":
+    case INCREMENT:
       return state + action.payload;
 
-    case "DECREMENT":
+    case DECREMENT:
       return state - action.payload;
 
-    case "RESET":
+    case RESET:
       return 0;
 
     default:
