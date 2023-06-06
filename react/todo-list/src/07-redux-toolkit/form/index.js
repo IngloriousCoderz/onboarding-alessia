@@ -1,8 +1,8 @@
 import FormComponent from "./form";
 import { useDispatch, useSelector } from "react-redux";
 import { setText } from "./form.slice";
-import { addTask } from "../store/thunks";
-import { selectText } from "../store/selectors";
+import { addTask } from "../store/actions";
+import { selectText } from "../store/text";
 
 // container component
 

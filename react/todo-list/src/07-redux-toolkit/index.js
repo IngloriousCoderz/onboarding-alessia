@@ -7,7 +7,11 @@ import tasks from "./list/list.slice";
 
 const INITIAL_STATE = {
   text: "",
-  tasks: [],
+  tasks: [
+    { id: 1, text: "Learn Redux", completed: true },
+    { id: 2, text: "Look for a job", completed: false },
+    { id: 3, text: "Forget everything" },
+  ],
 };
 
 const store = configureStore({

@@ -1,7 +1,7 @@
 import ListComponent from "./list";
 import { useDispatch, useSelector } from "react-redux";
-import { removeTask, toggleCompleted } from "../store/thunks";
-import { selectTasks } from "../store/selectors";
+import { removeTask, toggleCompleted } from "./list.slice";
+import { selectTasks } from "../store/tasks";
 
 function List() {
   const tasks = useSelector(selectTasks);
